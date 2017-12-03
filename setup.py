@@ -8,7 +8,7 @@ except ImportError:
 __version__ = '1.0'
 __author__ = 'Jiawen Guan'
 
-with open('README.md') as f:
+with open('README.rst') as f:
     readme = f.read()
 
 
@@ -26,7 +26,7 @@ setup(name='cuckoofilter',
           'Development Status :: 4 - Beta',
           'Intended Audience :: Developers',
           'Natural Language :: English',
-          'License :: OSI Approved :: General Public License',
+          'License :: OSI Approved :: GNU General Public License (GPL)',
           'Programming Language :: Python',
           'Programming Language :: Python :: 2',
           'Programming Language :: Python :: 2.7',
