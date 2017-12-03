@@ -14,7 +14,7 @@ Bloom filters. For applications that store many items and target moderately low
 false positive rates, cuckoo filters have lower space overhead than space-optimized 
 Bloom filters.
 
-To Know more details of Cuckoo Filter, please read the paper.
+To know more details of Cuckoo Filter, please read the paper.
 
 Installation
 ---
