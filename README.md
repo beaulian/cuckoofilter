@@ -1,12 +1,12 @@
 cuckoofilter
-=========
+=====================================================
 Cuckoofilter is an implementation of Cuckoo Filter using Python, which is thread-safe.
 Besides, the package can both be used in python2.x and python3.x.
 
 Cuckoo Filter
----------
+---
 Cuckoo filter first appeared in the paper 
-`Cuckoo Filter: Practically Better Than Bloom <https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf>`_
+[Cuckoo Filter: Practically Better Than Bloom](https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf) 
 by Bin Fan,David G. Andersen, Michael Kaminsky and Michael D. Mitzenmacher, which is used to
 replace Bloom filters for approximate set membership tests. Cuckoo filters support 
 adding and removing items dynamically while achieving even higher performance than
@@ -17,49 +17,45 @@ Bloom filters.
 To know more details of Cuckoo Filter, please read the paper.
 
 Installation
----------
+---
 Install cuckoofilter:
-
-.. code-block::
-
-    $ pip install cuckoopy
+```shell
+   $ pip install cuckoofilter
+```
 Or
-
-.. code-block::
-
-    $ pip3 install cuckoopy
+```shell
+   $ pip3 install cuckoofilter
+```
 
 Usage
----------
-.. code-block:: python
-
+---
+```python
     >>> import cuckoofilter
     >>> cf = cuckoofilter.CuckooFilter(capacity=100, fingerprint_size=1)
     
     >>> cf.insert('test')
-    True
+    66349
     
     >>> cf.contains('test')
     True
     
     >>> cf.delete('test')
     True
-
+```
 
 Testing
----------
+---
 To test the package and generate a test coverage report, you should run
-.. code-block::
-
+```shell
    $ pip install pytest coverage pytest-cov
    $ pytest -v -cov=cuckoofilter --cov-report html
-
+```
 Or
-.. code-block::
-
+```shell
    $ pip3 install pytest coverage pytest-cov
    $ python3 -m pytest .
+```
 
 License
----------
-`GPL-3.0 License <https://github.com/shenaishiren/cuckoofilter/blob/master/LICENSE>`_
+-------
+[GPL-3.0 License](https://github.com/shenaishiren/cuckoofilter/blob/master/LICENSE)
