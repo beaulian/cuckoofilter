@@ -5,7 +5,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-__version__ = '1.0'
+__version__ = '0.0.1'
 __author__ = 'Jiawen Guan'
 
 with open('README.rst') as f:
