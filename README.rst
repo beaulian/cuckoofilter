@@ -18,7 +18,7 @@ To know more details of Cuckoo Filter, please read the paper.
 
 Installation
 ---
-Install cuckoofilter using:
+Install cuckoofilter:
 ```shell
    $ pip install cuckoofilter
 ```
