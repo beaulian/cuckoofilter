@@ -64,7 +64,8 @@ class Bucket(object):
         :return: a fingerprint, the swapped fingerprint
         """
         i = random.randint(0, len(self) - 1)
-        fp, self.__b[i] = self.__b[i], fp
+        with self.__lock:
+            fp, self.__b[i] = self.__b[i], fp
         return fp
 
     def capacity(self):
