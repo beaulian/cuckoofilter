@@ -1,5 +1,5 @@
 # coding=utf-8
-
+from os.path import dirname, join
 try:
     from setuptools import setup
 except ImportError:
@@ -8,7 +8,7 @@ except ImportError:
 __version__ = '0.0.1'
 __author__ = 'Jiawen Guan'
 
-with open('README.md') as f:
+with open(join(dirname(__file__), 'README.rst'), 'r') as f:
     readme = f.read()
 
 
