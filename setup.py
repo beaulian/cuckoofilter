@@ -8,7 +8,7 @@ except ImportError:
 __version__ = '0.0.1'
 __author__ = 'Jiawen Guan'
 
-with open('README.rst') as f:
+with open('README.md') as f:
     readme = f.read()
 
 
