@@ -34,7 +34,7 @@ Usage
     >>> cf = cuckoofilter.CuckooFilter(capacity=100, fingerprint_size=1)
     
     >>> cf.insert('test')
-    66349
+    True
     
     >>> cf.contains('test')
     True
