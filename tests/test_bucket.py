@@ -59,6 +59,6 @@ def test_get_fingerprint_index(b):
 def test_swap(b):
     bs2 = b"test2"
     b.insert(bs)
-    fp = b.swap(bs2)
+    fp, _ = b.swap(bs2)
     assert fp == bs
     assert bs2 in b

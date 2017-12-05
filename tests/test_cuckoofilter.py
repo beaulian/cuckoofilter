@@ -10,8 +10,18 @@ def cf():
     return cuckoofilter.CuckooFilter(capacity=100)
 
 
+@pytest.fixture
+def cf1():
+    return cuckoofilter.CuckooFilter(capacity=4)
+
+
 def test_capacity(cf):
     assert len(cf) == 32
+
+
+def test_capacity_error():
+    with pytest.raises(AssertionError) as _:
+        cuckoofilter.CuckooFilter(capacity=1)
 
 
 def test_insert(cf):
@@ -28,6 +38,11 @@ def test_insert_full(cf):
     for _ in range(bucket.DEFAULT_BUCKET_SIZE << 1):
         cf.insert(s)
     assert not cf.insert(s)
+
+
+def test_insert_undo(cf1):
+    cf1._CuckooFilter__buckets[0]._Bucket__b = ['1', '2', '3', '4']
+    assert not cf1.insert(s)
 
 
 def test_contains(cf):

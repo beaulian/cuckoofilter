@@ -61,9 +61,20 @@ class Bucket(object):
         """ Swap given fingerprint with a random entry stored in the bucket
 
         :param fp: fingerprint
-        :return: a fingerprint, the swapped fingerprint
+        :return: a fingerprint, the swapped fingerprint, and the index
         """
         i = random.randint(0, len(self) - 1)
+        with self.__lock:
+            fp, self.__b[i] = self.__b[i], fp
+        return fp, i
+
+    def swap_index(self, fp, i):
+        """ Swap given fingerprint with a entry whose index is `i` stored in the bucket
+
+        :param fp: fingerprint
+        :param i: index
+        :return: a fingerprint, the swapped fingerprint
+        """
         with self.__lock:
             fp, self.__b[i] = self.__b[i], fp
         return fp

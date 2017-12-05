@@ -36,6 +36,8 @@ class CuckooFilter(object):
                the larger fingerprint size is, the lower false positive
                rates are.
         """
+        assert capacity >= bucket.DEFAULT_BUCKET_SIZE
+
         self.__capacity = int(get_next_pow2(capacity) / bucket.DEFAULT_BUCKET_SIZE)
         self.__fingerprint_size = fingerprint_size
         self.__count = 0   # record the number of fingerprints in cuckoofilter
@@ -54,12 +56,21 @@ class CuckooFilter(object):
 
         # reinsert, kick out some fps
         i = random.choice([i1, i2])
+        oldfp, undo = fp, []
         for k in range(MAX_CUCKOO_COUNT):
             # swap
-            fp = self.__buckets[i].swap(fp)
+            fp, j = self.__buckets[i].swap(fp)
+            # for undo operator
+            undo.append((fp, i, j))
             i = self._get_alter_index(fp, i)
             if self._insert(fp, i):
                 return True
+        # undo insert, go back to original
+        for k in range(MAX_CUCKOO_COUNT - 1, -1, -1):
+            fp, i, j = undo[k]
+            fp = self.__buckets[i].swap_index(fp, j)
+
+        assert oldfp == fp
         return False
 
     def _insert(self, fp, i):
