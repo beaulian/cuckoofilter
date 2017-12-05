@@ -41,7 +41,7 @@ def test_insert_full(cf):
 
 
 def test_insert_undo(cf1):
-    cf1._CuckooFilter__buckets[0]._Bucket__b = ['1', '2', '3', '4']
+    cf1._CuckooFilter__buckets[0]._Bucket__b = [b'1', b'2', b'3', b'4']
     assert not cf1.insert(s)
 
 
