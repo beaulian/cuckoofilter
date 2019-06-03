@@ -56,21 +56,13 @@ class CuckooFilter(object):
 
         # reinsert, kick out some fps
         i = random.choice([i1, i2])
-        oldfp, undo = fp, []
         for k in range(MAX_CUCKOO_COUNT):
             # swap
             fp, j = self.__buckets[i].swap(fp)
-            # for undo operator
-            undo.append((fp, i, j))
             i = self._get_alter_index(fp, i)
             if self._insert(fp, i):
                 return True
-        # undo insert, go back to original
-        for k in range(MAX_CUCKOO_COUNT - 1, -1, -1):
-            fp, i, j = undo[k]
-            fp = self.__buckets[i].swap_index(fp, j)
 
-        assert oldfp == fp
         return False
 
     def _insert(self, fp, i):
