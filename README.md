@@ -48,7 +48,7 @@ Testing
 To test the package and generate a test coverage report, you should run
 ```shell
    $ pip install pytest coverage pytest-cov
-   $ pytest -v -cov=cuckoofilter --cov-report html
+   $ pytest -v --cov=cuckoofilter --cov-report=html
 ```
 Or
 ```shell

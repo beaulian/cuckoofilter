@@ -52,7 +52,7 @@ To test the package and generate a test coverage report, you should run
 .. code-block::
 
    $ pip install pytest coverage pytest-cov
-   $ pytest -v -cov=cuckoofilter --cov-report html
+   $ pytest -v --cov=cuckoofilter --cov-report=html
 
 Or
 .. code-block::

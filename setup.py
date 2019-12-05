@@ -5,7 +5,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-__version__ = '0.0.0.1'
+__version__ = '0.0.0.2'
 __author__ = 'Jiawen Guan'
 
 with open(join(dirname(__file__), 'README.rst'), 'r') as f:
@@ -14,16 +14,16 @@ with open(join(dirname(__file__), 'README.rst'), 'r') as f:
 
 setup(name='cuckoofilter',
       version=__version__,
-      description='Cuckoo Filter implementation using Python',
+      description='Cuckoo Filter Implementation Using Python',
       long_description=readme,
       author=__author__,
       author_email='jesus.jiawen@gmail.com',
-      url='https://github.com/shenaishiren/cuckoofilter',
+      url='https://github.com/beaulian/cuckoofilter',
       license='GPL-3.0',
       packages=['cuckoofilter'],
       install_requires=["mmh3"],
       classifiers=[
-          'Development Status :: 4 - Beta',
+          'Development Status :: 5 - Production/Stable',
           'Intended Audience :: Developers',
           'Natural Language :: English',
           'License :: OSI Approved :: GNU General Public License (GPL)',
